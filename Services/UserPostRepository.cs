@@ -1,5 +1,6 @@
 ﻿using AspNetCorePluralSight.DTOs;
 using AspNetCorePluralSight.Entities;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiAspNet7Patrick.Data;
 
@@ -29,23 +30,25 @@ namespace AspNetCorePluralSight.Services
 
         public async Task<List<User>> GetUsersAsync()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Users.Include(c => c.Posts).ToListAsync();
         }
         public async Task<User?> GetUsersByIdAsync(int id)
         {
-            return await _context.Users.Include(_ => _.Posts).Where(c => c.Id == id).FirstOrDefaultAsync();
+            return await _context.Users.Where(c => c.Id == id).Include(_ => _.Posts).FirstOrDefaultAsync();
         }
 
       
 
         public async Task<Post?> CreatePostAsync(int userId, PostDto newPost)
         {
-            var user = await GetUsersByIdAsync(userId);
+            var user = await _context.Users.FindAsync(userId);
+            // var user = await GetUsersByIdAsync(userId);
             Post post = new(newPost.Title, newPost.Body);
 
             if(user != null)
             {
                 user.Posts.Add(post);
+                await _context.SaveChangesAsync();
                 return post;
             }
             return null;

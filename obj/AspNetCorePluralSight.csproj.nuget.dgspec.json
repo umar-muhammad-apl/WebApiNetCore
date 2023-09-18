@@ -1,27 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Umar\\Music\\AspCore\\AspNetCorePluralSight\\AspNetCorePluralSight.csproj": {}
+    "/Users/arcomputers/Documents/GitHub/WebApiNetCore/AspNetCorePluralSight.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Umar\\Music\\AspCore\\AspNetCorePluralSight\\AspNetCorePluralSight.csproj": {
+    "/Users/arcomputers/Documents/GitHub/WebApiNetCore/AspNetCorePluralSight.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Umar\\Music\\AspCore\\AspNetCorePluralSight\\AspNetCorePluralSight.csproj",
+        "projectUniqueName": "/Users/arcomputers/Documents/GitHub/WebApiNetCore/AspNetCorePluralSight.csproj",
         "projectName": "AspNetCorePluralSight",
-        "projectPath": "C:\\Users\\Umar\\Music\\AspCore\\AspNetCorePluralSight\\AspNetCorePluralSight.csproj",
-        "packagesPath": "C:\\Users\\Umar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Umar\\Music\\AspCore\\AspNetCorePluralSight\\obj\\",
+        "projectPath": "/Users/arcomputers/Documents/GitHub/WebApiNetCore/AspNetCorePluralSight.csproj",
+        "packagesPath": "/Users/arcomputers/.nuget/packages/",
+        "outputPath": "/Users/arcomputers/Documents/GitHub/WebApiNetCore/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Umar\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/arcomputers/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/sdk/7.0.304/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -51,6 +50,10 @@
               "version": "[6.0.12, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[6.0.12, )"
             },
@@ -84,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.304/RuntimeIdentifierGraph.json"
         }
       }
     }
