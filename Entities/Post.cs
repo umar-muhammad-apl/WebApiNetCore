@@ -9,7 +9,7 @@ namespace AspNetCorePluralSight.Entities
 
         public string Body { get; set; }
         
-        //public User? User { get; set; } 
+        //public User? User { get; set; } = null!;
         public int UserId { get; set; } 
 
         public Post(string title, string body)

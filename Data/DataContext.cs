@@ -21,5 +21,13 @@ namespace WebApiAspNet7Patrick.Data
                 .HasForeignKey(e => e.UserId)
                 .IsRequired();
         }
+        // protected override void OnModelCreating(ModelBuilder modelBuilder)
+        // {
+        //     modelBuilder.Entity<User>()
+        //         .HasMany(e => e.Posts)
+        //         .WithOne(e => e.User)
+        //         .HasForeignKey(e => e.UserId)
+        //         .IsRequired();
+        // }
     }
 }

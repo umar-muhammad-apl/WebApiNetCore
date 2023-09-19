@@ -32,17 +32,21 @@ namespace AspNetCorePluralSight.Services
         {
             return await _context.Users.Include(c => c.Posts).ToListAsync();
         }
-        public async Task<User?> GetUsersByIdAsync(int id)
+        public async Task<User?> GetUserByIdAsync(int id)
         {
             return await _context.Users.Where(c => c.Id == id).Include(_ => _.Posts).FirstOrDefaultAsync();
         }
 
-      
+        public async Task<Post?> GetPostByIdAsync(int id)
+        {
+            return await _context.Posts.Where(c => c.Id == id).FirstOrDefaultAsync();
+        }
 
+      
         public async Task<Post?> CreatePostAsync(int userId, PostDto newPost)
         {
-            var user = await _context.Users.FindAsync(userId);
-            // var user = await GetUsersByIdAsync(userId);
+            //var user = await _context.Users.FindAsync(userId);
+            var user = await GetUserByIdAsync(userId);
             Post post = new(newPost.Title, newPost.Body);
 
             if(user != null)
@@ -54,5 +58,7 @@ namespace AspNetCorePluralSight.Services
             return null;
             
         }
+
+        
     }
 }

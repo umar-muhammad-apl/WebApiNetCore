@@ -1,9 +1,7 @@
 ﻿using AspNetCorePluralSight.DTOs;
 using AspNetCorePluralSight.Entities;
 using AspNetCorePluralSight.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection.Metadata.Ecma335;
 
 namespace AspNetCorePluralSight.Controllers
 {
@@ -22,27 +20,20 @@ namespace AspNetCorePluralSight.Controllers
         {
             return Ok(await _repository.CreateUserAsync(user));
         }
-        [HttpPost("posts")]
-        public async Task<ActionResult> CreatePost(int userId, PostDto newPost)
-        {
-            var post = await _repository.CreatePostAsync(userId, newPost);
-            if(post!= null){
-                return Ok(post);
-            }
-            return new NotFoundResult();    
-        }
-
+        
         [HttpGet("allusers")]
         public async Task<List<User>> GetAllUsers()
         {
             return await _repository.GetUsersAsync();
         }
 
-        [HttpGet("allposts")]
-        public async Task<List<Post>> GetAllPosts()
+        [HttpGet("user")]
+        public async Task<User?> GetUserById(int userId)
         {
-            return await _repository.GetPostsAsync();
+            return await _repository.GetUserByIdAsync(userId);
         }
+
+        
 
     }
 }
