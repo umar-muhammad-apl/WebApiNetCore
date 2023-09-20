@@ -13,14 +13,14 @@ namespace WebApiAspNet7Patrick.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Post> Posts { get; set;}
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<User>()
-                .HasMany(e => e.Posts)
-                .WithOne()
-                .HasForeignKey(e => e.UserId)
-                .IsRequired();
-        }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<User>()
+        //        .HasMany(e => e.Posts)
+        //        .WithOne()
+        //        .HasForeignKey(e => e.UserId)
+        //        .IsRequired();
+        //}
         // protected override void OnModelCreating(ModelBuilder modelBuilder)
         // {
         //     modelBuilder.Entity<User>()
@@ -29,5 +29,13 @@ namespace WebApiAspNet7Patrick.Data
         //         .HasForeignKey(e => e.UserId)
         //         .IsRequired();
         // }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Posts)
+                .WithOne(p => p.User)
+                .HasForeignKey(p => p.UserId);
+        }
     }
 }

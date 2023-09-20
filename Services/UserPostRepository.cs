@@ -17,7 +17,17 @@ namespace AspNetCorePluralSight.Services
         
         public async Task<User> CreateUserAsync(UserDto userDto)
         {
-            User user = new(userDto.Name, userDto.Username, userDto.Email);
+            List<Post> posts = new List<Post>();
+            foreach (var item in userDto.Posts)
+            {
+                posts.Add(new Post { Title= item.Title, Body= item.Body });
+            }
+                User user = new User {   
+                Name = userDto.Name, 
+                Username = userDto.Username, 
+                Email = userDto.Email, 
+                Posts= posts
+                };
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
             return user;
@@ -47,7 +57,7 @@ namespace AspNetCorePluralSight.Services
         {
             //var user = await _context.Users.FindAsync(userId);
             var user = await GetUserByIdAsync(userId);
-            Post post = new(newPost.Title, newPost.Body);
+            Post post = new Post { Title = newPost.Title, Body = newPost.Body };
 
             if(user != null)
             {

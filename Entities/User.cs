@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace AspNetCorePluralSight.Entities
 {
@@ -15,14 +16,22 @@ namespace AspNetCorePluralSight.Entities
 
         public string Email { get; set; }
 
+        //[JsonIgnore]
         public ICollection<Post> Posts { get; set;} = new List<Post>();
 
-        public User(string name, string username, string email)
-        {
-            Name = name;
-            Username = username;
-            Email = email;
-        }
-        
+        //public User(string name, string username, string email, List<Post> posts)
+        //{
+        //    Name = name;
+        //    Username = username;
+        //    Email = email;
+        //    Posts = posts;
+        //}
+        //public User(string name, string username, string email)
+        //{
+        //    Name = name;
+        //    Username = username;
+        //    Email = email;
+        //}
+
     }
 }

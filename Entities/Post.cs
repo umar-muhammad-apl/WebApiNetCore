@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace AspNetCorePluralSight.Entities
 {
@@ -8,15 +9,16 @@ namespace AspNetCorePluralSight.Entities
         public string Title { get; set; }
 
         public string Body { get; set; }
-        
-        //public User? User { get; set; } = null!;
+
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public User User { get; set; } 
         public int UserId { get; set; } 
 
-        public Post(string title, string body)
-        {
-            Title = title;
-            Body = body;
-        }
+        //public Post(string title, string body)
+        //{
+        //    Title = title;
+        //    Body = body;
+        //}
 
 
     }

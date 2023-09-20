@@ -16,9 +16,10 @@ namespace AspNetCorePluralSight.Controllers
             _repository = repository;
         }
         [HttpPost]
-        public async Task<ActionResult> CreateUser(UserDto user)
+        public async Task<ActionResult<User>> CreateUser(UserDto user)
         {
-            return Ok(await _repository.CreateUserAsync(user));
+            User createdUser = await _repository.CreateUserAsync(user);
+            return Ok(createdUser);
         }
         
         [HttpGet("allusers")]
